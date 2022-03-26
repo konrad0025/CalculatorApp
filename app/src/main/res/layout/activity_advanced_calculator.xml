@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SimpleCalculator"
+    tools:context=".AdvancedCalculator"
     android:background="#000000"
     android:backgroundTint="#000000"
     android:baselineAligned="false"
@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:text="@string/Calculator"
         android:textAlignment="viewEnd"
         android:textAllCaps="false"
@@ -32,6 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+
         android:orientation="horizontal"
         android:paddingBottom="5dp">
         <Button
@@ -215,6 +216,86 @@
         <Button
             android:background="@drawable/rounded_corner"
             android:id="@+id/button22"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:text="Button" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp">
+        <Button
+            android:background="@drawable/rounded_corner"
+            android:id="@+id/button23"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:text="Button"
+            android:layout_marginEnd="5dp"
+            tools:ignore="NestedWeights" />
+        <Button
+            android:background="@drawable/rounded_corner"
+            android:id="@+id/button24"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:text="Button"
+            android:layout_marginEnd="5dp"/>
+        <Button
+            android:background="@drawable/rounded_corner"
+            android:id="@+id/button25"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:text="Button"
+            android:layout_marginEnd="5dp"/>
+        <Button
+            android:background="@drawable/rounded_corner"
+            android:id="@+id/button26"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:text="Button" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp">
+        <Button
+            android:background="@drawable/rounded_corner"
+            android:id="@+id/button27"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:text="Button"
+            android:layout_marginEnd="5dp"
+            tools:ignore="NestedWeights" />
+        <Button
+            android:background="@drawable/rounded_corner"
+            android:id="@+id/button28"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:text="Button"
+            android:layout_marginEnd="5dp"/>
+        <Button
+            android:background="@drawable/rounded_corner"
+            android:id="@+id/button29"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:text="Button"
+            android:layout_marginEnd="5dp"/>
+        <Button
+            android:background="@drawable/rounded_corner"
+            android:id="@+id/button30"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"

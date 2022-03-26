@@ -8,16 +8,23 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    Button button;
+    Button buttonSimple,buttonAdvanced;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        button = findViewById(R.id.button6);
-        button.setOnClickListener(new View.OnClickListener() {
+        buttonSimple = findViewById(R.id.button6);
+        buttonSimple.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), SimpleCalculator.class));
+            }
+        });
+        buttonAdvanced = findViewById(R.id.button7);
+        buttonAdvanced.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), AdvancedCalculator.class));
             }
         });
     }

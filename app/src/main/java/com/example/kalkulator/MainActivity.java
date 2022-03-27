@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    Button buttonSimple,buttonAdvanced,buttonExit;
+    Button buttonSimple,buttonAdvanced,buttonInfo,buttonExit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +25,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), AdvancedCalculator.class));
+            }
+        });
+        buttonInfo = findViewById(R.id.button8);
+        buttonInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), InfoAboutCalculator.class));
             }
         });
         buttonExit = findViewById(R.id.button9);

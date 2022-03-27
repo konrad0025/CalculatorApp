@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">Kalkulator</string>
+    <string name="app_name">CalculatorApp</string>
+    <string name="info">My version of a simple and advanced calculator for android that had to be created for school activities</string>
+    <string name="author_name">konrad0025</string>
     <string name="Calculator">Calculator</string>
     <string name="Simple">Simple</string>
     <string name="Advanced">Advanced</string>

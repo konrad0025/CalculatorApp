@@ -5,4 +5,31 @@
     <string name="Advanced">Advanced</string>
     <string name="About">About</string>
     <string name="Exit">Exit</string>
+    <string name="Bksp">Bksp</string>
+    <string name="C">C</string>
+    <string name="Seven">7</string>
+    <string name="Eight">8</string>
+    <string name="Nine">9</string>
+    <string name="Six">6</string>
+    <string name="Five">5</string>
+    <string name="Four">4</string>
+    <string name="Three">3</string>
+    <string name="Two">2</string>
+    <string name="One">1</string>
+    <string name="Zero">0</string>
+    <string name="Equal">=</string>
+    <string name="Dot">.</string>
+    <string name="multiply">*</string>
+    <string name="Add">+</string>
+    <string name="Subtract">-</string>
+    <string name="Divide">/</string>
+    <string name="Plus_minus">±</string>
+    <string name="Sin">sin</string>
+    <string name="Cos">cos</string>
+    <string name="Tan">tan</string>
+    <string name="Ln">ln</string>
+    <string name="Sqrt">sqrt</string>
+    <string name="Pow2">x^2</string>
+    <string name="Pow">x^y</string>
+    <string name="Log">log</string>
 </resources>

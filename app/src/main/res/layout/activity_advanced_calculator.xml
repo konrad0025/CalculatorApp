@@ -41,7 +41,8 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="5"
-            android:text="Button"
+            android:text="@string/Bksp"
+            android:textAllCaps="false"
             tools:ignore="NestedWeights"
             android:layout_marginEnd="5dp"/>
         <Button
@@ -50,7 +51,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="8"
-            android:text="Button"
+            android:text="@string/C"
             android:layout_marginEnd="5dp"/>
         <Button
             android:background="@drawable/rounded_corner"
@@ -58,7 +59,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
-            android:text="Button" />
+            android:text="@string/Plus_minus" />
     </LinearLayout>
     <LinearLayout
 
@@ -74,7 +75,8 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="5"
-            android:text="Button"
+            android:text="@string/Sin"
+            android:textAllCaps="false"
             android:layout_marginEnd="5dp"
             tools:ignore="NestedWeights" />
         <Button
@@ -83,7 +85,8 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
-            android:text="Button"
+            android:text="@string/Cos"
+            android:textAllCaps="false"
             android:layout_marginEnd="5dp"/>
         <Button
             android:background="@drawable/rounded_corner"
@@ -91,7 +94,8 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
-            android:text="Button"
+            android:text="@string/Tan"
+            android:textAllCaps="false"
             android:layout_marginEnd="5dp"/>
         <Button
             android:background="@drawable/rounded_corner"
@@ -99,7 +103,8 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
-            android:text="Button" />
+            android:text="@string/Ln"
+            android:textAllCaps="false" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -114,7 +119,8 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="5"
-            android:text="Button"
+            android:text="@string/Sqrt"
+            android:textAllCaps="false"
             android:layout_marginEnd="5dp"
             tools:ignore="NestedWeights" />
         <Button
@@ -123,7 +129,8 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
-            android:text="Button"
+            android:text="@string/Pow2"
+            android:textAllCaps="false"
             android:layout_marginEnd="5dp"/>
         <Button
             android:background="@drawable/rounded_corner"
@@ -131,7 +138,8 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
-            android:text="Button"
+            android:text="@string/Pow"
+            android:textAllCaps="false"
             android:layout_marginEnd="5dp"/>
         <Button
             android:background="@drawable/rounded_corner"
@@ -139,7 +147,8 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
-            android:text="Button" />
+            android:text="@string/Log"
+            android:textAllCaps="false" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -154,7 +163,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="5"
-            android:text="Button"
+            android:text="@string/Seven"
             android:layout_marginEnd="5dp"
             tools:ignore="NestedWeights" />
         <Button
@@ -163,7 +172,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
-            android:text="Button"
+            android:text="@string/Eight"
             android:layout_marginEnd="5dp"/>
         <Button
             android:background="@drawable/rounded_corner"
@@ -171,7 +180,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
-            android:text="Button"
+            android:text="@string/Nine"
             android:layout_marginEnd="5dp"/>
         <Button
             android:background="@drawable/rounded_corner"
@@ -179,7 +188,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
-            android:text="Button" />
+            android:text="@string/Divide" />
     </LinearLayout>
     <LinearLayout
         android:layout_weight="1"
@@ -194,7 +203,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="5"
-            android:text="Button"
+            android:text="@string/Four"
             android:layout_marginEnd="5dp"
             tools:ignore="NestedWeights" />
         <Button
@@ -203,7 +212,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
-            android:text="Button"
+            android:text="@string/Five"
             android:layout_marginEnd="5dp"/>
         <Button
             android:background="@drawable/rounded_corner"
@@ -211,7 +220,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
-            android:text="Button"
+            android:text="@string/Six"
             android:layout_marginEnd="5dp"/>
         <Button
             android:background="@drawable/rounded_corner"
@@ -219,7 +228,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
-            android:text="Button" />
+            android:text="@string/multiply" />
     </LinearLayout>
     <LinearLayout
         android:layout_weight="1"
@@ -234,7 +243,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="5"
-            android:text="Button"
+            android:text="@string/One"
             android:layout_marginEnd="5dp"
             tools:ignore="NestedWeights" />
         <Button
@@ -243,7 +252,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
-            android:text="Button"
+            android:text="@string/Two"
             android:layout_marginEnd="5dp"/>
         <Button
             android:background="@drawable/rounded_corner"
@@ -251,7 +260,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
-            android:text="Button"
+            android:text="@string/Three"
             android:layout_marginEnd="5dp"/>
         <Button
             android:background="@drawable/rounded_corner"
@@ -259,7 +268,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
-            android:text="Button" />
+            android:text="@string/Subtract" />
     </LinearLayout>
     <LinearLayout
         android:layout_weight="1"
@@ -274,7 +283,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="5"
-            android:text="Button"
+            android:text="@string/Zero"
             android:layout_marginEnd="5dp"
             tools:ignore="NestedWeights" />
         <Button
@@ -283,7 +292,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
-            android:text="Button"
+            android:text="@string/Dot"
             android:layout_marginEnd="5dp"/>
         <Button
             android:background="@drawable/rounded_corner"
@@ -291,7 +300,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
-            android:text="Button"
+            android:text="@string/Equal"
             android:layout_marginEnd="5dp"/>
         <Button
             android:background="@drawable/rounded_corner"
@@ -299,6 +308,6 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
-            android:text="Button" />
+            android:text="@string/Add" />
     </LinearLayout>
 </LinearLayout>

@@ -32,4 +32,8 @@ public class HandleCalculations {
     public String getValue() {
         return value;
     }
+    public String getCalcLine()
+    {
+        return this.value+this.operation;
+    }
 }

@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 public class SimpleCalculator extends AppCompatActivity {
     HandleCalculations handleCalculations;
-    TextView textView;
-    Button button0,button1,button2,button3,button4,button5,button6,button7,button8,button9;
+    TextView textView,textViewUpper;
+    Button button0,button1,button2,button3,button4,button5,button6,button7,button8,button9,buttonPlus,buttonMinus,buttonEqual;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +19,8 @@ public class SimpleCalculator extends AppCompatActivity {
         setContentView(R.layout.activity_simple_calculator);
         handleCalculations = new HandleCalculations();
         textView = findViewById(R.id.textView4);
-        setValue();
+        textViewUpper = findViewById(R.id.textView5);
+        setValue("0");
         button0 = findViewById(R.id.button19);
         button0.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,32 +91,75 @@ public class SimpleCalculator extends AppCompatActivity {
                 updateCalcLine(button9.getText().toString());
             }
         });
+        buttonPlus = findViewById(R.id.button22);
+        buttonPlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setOperation(buttonPlus.getText().toString());
+            }
+        });
+        buttonMinus = findViewById(R.id.button18);
+        buttonMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setOperation(buttonMinus.getText().toString());
+            }
+        });
+        buttonEqual = findViewById(R.id.button21);
+        buttonEqual.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                equalButton();
+            }
+        });
     }
 
-    public void setValue(){
-        textView.setText(handleCalculations.getValue());
+    public void setValue(String value){
+        textView.setText(value);
     }
 
     public void updateCalcLine(String value)
     {
-        if(textView.getText().equals("0"))
+        if(!textView.getText().equals("0"))
         {
-            handleCalculations.setValue(value);
+            String var = textView.getText().toString();
+            textView.setText(var.concat(value));
         }
         else
         {
-            handleCalculations.setValue(handleCalculations.getValue()+value);
+            textView.setText(value);
         }
-        setValue();
     }
 
     public void setOperation(String Operation)
     {
-        handleCalculations.setOperation(Operation);
+        if(handleCalculations.getOperation().equals(""))
+        {
+            handleCalculations.setOperation(Operation);
+            handleCalculations.setValue(textView.getText().toString());
+            textViewUpper.setText(handleCalculations.getCalcLine());
+            setValue("0");
+        }
+        else if(!handleCalculations.getOperation().equals(Operation))
+        {
+            calculate(textView.getText().toString());
+            handleCalculations.setOperation(Operation);
+            textViewUpper.setText(handleCalculations.getCalcLine());
+            setValue("0");
+        }
+    }
+
+    public void equalButton()
+    {
+        calculate(textView.getText().toString());
+        setValue(handleCalculations.getValue());
+        textViewUpper.setText("");
+        handleCalculations.setOperation("");
     }
 
     public void calculate(String value)
     {
         handleCalculations.updateValue(value);
     }
+
 }

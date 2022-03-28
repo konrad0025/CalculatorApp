@@ -39,7 +39,7 @@
             android:id="@+id/button4"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="5"
+            android:layout_weight="10"
             android:text="@string/Bksp"
             android:textAllCaps="false"
             tools:ignore="NestedWeights"
@@ -49,7 +49,7 @@
             android:id="@+id/button5"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="8"
+            android:layout_weight="12"
             android:text="@string/C"
             android:layout_marginEnd="5dp"/>
         <Button
@@ -60,12 +60,12 @@
             android:layout_weight="4"
             android:text="@string/Plus_minus" />
     </LinearLayout>
-    <LinearLayout
 
-        android:layout_weight="1"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:layout_weight="1"
         android:orientation="horizontal"
         android:paddingBottom="5dp">
         <Button
@@ -83,85 +83,16 @@
             android:id="@+id/button8"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="4"
+            android:layout_weight="5"
             android:text="@string/Cos"
             android:textAllCaps="false"
             android:layout_marginEnd="5dp"/>
         <Button
             android:background="@drawable/rounded_corner"
-            android:id="@+id/button9"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="4"
-            android:text="@string/Tan"
-            android:textAllCaps="false"
-            android:layout_marginEnd="5dp"/>
-        <Button
-            android:background="@drawable/rounded_corner"
-            android:id="@+id/button10"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="4"
-            android:text="@string/Ln"
-            android:textAllCaps="false" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        android:paddingBottom="5dp">
-        <Button
-            android:background="@drawable/rounded_corner"
-            android:id="@+id/button11"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="5"
-            android:text="@string/Sqrt"
-            android:textAllCaps="false"
-            android:layout_marginEnd="5dp"
-            tools:ignore="NestedWeights" />
-        <Button
-            android:background="@drawable/rounded_corner"
-            android:id="@+id/button12"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="4"
-            android:text="@string/Pow2"
-            android:textAllCaps="false"
-            android:layout_marginEnd="5dp"/>
-        <Button
-            android:background="@drawable/rounded_corner"
-            android:id="@+id/button13"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="4"
-            android:text="@string/Pow"
-            android:textAllCaps="false"
-            android:layout_marginEnd="5dp"/>
-        <Button
-            android:background="@drawable/rounded_corner"
-            android:id="@+id/button14"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="4"
-            android:text="@string/Log"
-            android:textAllCaps="false" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        android:paddingBottom="5dp">
-        <Button
-            android:background="@drawable/rounded_corner"
             android:id="@+id/button15"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="5"
+            android:layout_weight="4"
             android:text="@string/Seven"
             android:layout_marginEnd="5dp"
             tools:ignore="NestedWeights" />
@@ -198,10 +129,29 @@
         android:paddingBottom="5dp">
         <Button
             android:background="@drawable/rounded_corner"
-            android:id="@+id/button19"
+            android:id="@+id/button9"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="5"
+            android:text="@string/Tan"
+            android:textAllCaps="false"
+            android:layout_marginEnd="5dp"
+            tools:ignore="NestedWeights" />
+        <Button
+            android:background="@drawable/rounded_corner"
+            android:id="@+id/button11"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:text="@string/Sqrt"
+            android:textAllCaps="false"
+            android:layout_marginEnd="5dp" />
+        <Button
+            android:background="@drawable/rounded_corner"
+            android:id="@+id/button19"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
             android:text="@string/Four"
             android:layout_marginEnd="5dp"
             tools:ignore="NestedWeights" />
@@ -238,10 +188,29 @@
         android:paddingBottom="5dp">
         <Button
             android:background="@drawable/rounded_corner"
-            android:id="@+id/button23"
+            android:id="@+id/button13"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="5"
+            android:text="@string/Pow"
+            android:textAllCaps="false"
+            android:layout_marginEnd="5dp"
+            tools:ignore="NestedWeights" />
+        <Button
+            android:background="@drawable/rounded_corner"
+            android:id="@+id/button12"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:text="@string/Pow2"
+            android:textAllCaps="false"
+            android:layout_marginEnd="5dp"/>
+        <Button
+            android:background="@drawable/rounded_corner"
+            android:id="@+id/button23"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
             android:text="@string/One"
             android:layout_marginEnd="5dp"
             tools:ignore="NestedWeights" />
@@ -278,13 +247,33 @@
         android:paddingBottom="5dp">
         <Button
             android:background="@drawable/rounded_corner"
-            android:id="@+id/button27"
+            android:id="@+id/button10"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="5"
+            android:text="@string/Ln"
+            android:textAllCaps="false"
+            tools:ignore="NestedWeights"
+            android:layout_marginEnd="5dp"/>
+
+
+        <Button
+            android:background="@drawable/rounded_corner"
+            android:id="@+id/button14"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:text="@string/Log"
+            android:textAllCaps="false"
+            android:layout_marginEnd="5dp"/>
+        <Button
+            android:background="@drawable/rounded_corner"
+            android:id="@+id/button27"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
             android:text="@string/Zero"
-            android:layout_marginEnd="5dp"
-            tools:ignore="NestedWeights" />
+            android:layout_marginEnd="5dp" />
         <Button
             android:background="@drawable/rounded_corner"
             android:id="@+id/button28"

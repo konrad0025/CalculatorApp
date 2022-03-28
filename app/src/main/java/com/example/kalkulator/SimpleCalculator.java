@@ -11,7 +11,7 @@ import android.widget.TextView;
 public class SimpleCalculator extends AppCompatActivity {
     HandleCalculations handleCalculations;
     TextView textView,textViewUpper;
-    Button button0,button1,button2,button3,button4,button5,button6,button7,button8,button9,buttonPlus,buttonMinus,buttonEqual;
+    Button button0,button1,button2,button3,button4,button5,button6,button7,button8,button9,buttonPlus,buttonMinus,buttonEqual,buttonMultiply,buttonDivide;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,6 +110,27 @@ public class SimpleCalculator extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 equalButton();
+            }
+        });
+        buttonMultiply = findViewById(R.id.button18);
+        buttonMultiply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setOperation(buttonMultiply.getText().toString());
+            }
+        });
+        buttonMinus = findViewById(R.id.button14);
+        buttonMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setOperation(buttonMinus.getText().toString());
+            }
+        });
+        buttonDivide = findViewById(R.id.button10);
+        buttonDivide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setOperation(buttonDivide.getText().toString());
             }
         });
     }

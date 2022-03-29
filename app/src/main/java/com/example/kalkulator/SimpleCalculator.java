@@ -11,7 +11,7 @@ import android.widget.TextView;
 public class SimpleCalculator extends AppCompatActivity {
     HandleCalculations handleCalculations;
     TextView textView,textViewUpper;
-    Button buttonC,button0,button1,button2,button3,button4,button5,button6,button7,button8,button9,buttonPlus,buttonMinus,buttonEqual,buttonMultiply,buttonDivide,buttonBscp;
+    Button buttonC,buttonMark,buttonDot,button0,button1,button2,button3,button4,button5,button6,button7,button8,button9,buttonPlus,buttonMinus,buttonEqual,buttonMultiply,buttonDivide,buttonBscp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -147,6 +147,20 @@ public class SimpleCalculator extends AppCompatActivity {
                 CButton();
             }
         });
+        buttonDot = findViewById(R.id.button20);
+        buttonDot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dotButton();
+            }
+        });
+        buttonMark = findViewById(R.id.button6);
+        buttonMark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                changeMarkButton();
+            }
+        });
     }
 
     public void setValue(String value){
@@ -163,6 +177,31 @@ public class SimpleCalculator extends AppCompatActivity {
         else
         {
             textView.setText(value);
+        }
+    }
+    public void changeMarkButton()
+    {
+        if(!textView.getText().toString().equals("0"))
+        {
+            if(!textView.getText().toString().contains("-"))
+            {
+                String var = textView.getText().toString();
+                textView.setText("-".concat(var));
+            }
+            else
+            {
+                String var = textView.getText().toString();
+                textView.setText(var.replace("-",""));
+            }
+        }
+
+    }
+    public void dotButton()
+    {
+        if(!textView.getText().toString().contains("."))
+        {
+            String var = textView.getText().toString();
+            textView.setText(var.concat("."));
         }
     }
     public void bscpCalcLine()

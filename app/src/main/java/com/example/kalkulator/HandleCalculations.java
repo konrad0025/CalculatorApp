@@ -13,7 +13,8 @@ public class HandleCalculations {
     }
 
     public void updateValue(String value){
-        Expression exp = new Expression(this.value + this.operation + value);
+
+        Expression exp = new Expression(this.value + this.operation + "("+value+")");
         this.value = String.valueOf(exp.calculate());
     }
 

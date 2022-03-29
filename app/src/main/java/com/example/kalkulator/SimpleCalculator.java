@@ -11,7 +11,7 @@ import android.widget.TextView;
 public class SimpleCalculator extends AppCompatActivity {
     HandleCalculations handleCalculations;
     TextView textView,textViewUpper;
-    Button button0,button1,button2,button3,button4,button5,button6,button7,button8,button9,buttonPlus,buttonMinus,buttonEqual,buttonMultiply,buttonDivide;
+    Button buttonC,button0,button1,button2,button3,button4,button5,button6,button7,button8,button9,buttonPlus,buttonMinus,buttonEqual,buttonMultiply,buttonDivide,buttonBscp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,6 +133,20 @@ public class SimpleCalculator extends AppCompatActivity {
                 setOperation(buttonDivide.getText().toString());
             }
         });
+        buttonBscp = findViewById(R.id.button4);
+        buttonBscp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                bscpCalcLine();
+            }
+        });
+        buttonC = findViewById(R.id.button5);
+        buttonC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CButton();
+            }
+        });
     }
 
     public void setValue(String value){
@@ -151,7 +165,31 @@ public class SimpleCalculator extends AppCompatActivity {
             textView.setText(value);
         }
     }
-
+    public void bscpCalcLine()
+    {
+        String var = textView.getText().toString();
+        var = var.substring(0, var.length()-1);
+        if(var.equals(""))
+        {
+            textView.setText("0");
+        }
+        else {
+            textView.setText(var);
+        }
+    }
+    public void CButton()
+    {
+        if(!textView.getText().equals("0"))
+        {
+            textView.setText("0");
+        }
+        else
+        {
+            textViewUpper.setText("");
+            handleCalculations.setOperation("");
+            handleCalculations.setValue("0");
+        }
+    }
     public void setOperation(String Operation)
     {
         if(handleCalculations.getOperation().equals(""))

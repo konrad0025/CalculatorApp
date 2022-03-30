@@ -169,7 +169,7 @@ public class SimpleCalculator extends AppCompatActivity {
 
     public void updateCalcLine(String value)
     {
-        if(!textView.getText().equals("0"))
+        if(!textView.getText().equals("0") && !textView.getText().equals("NaN"))
         {
             String var = textView.getText().toString();
             textView.setText(var.concat(value));
@@ -181,7 +181,7 @@ public class SimpleCalculator extends AppCompatActivity {
     }
     public void changeMarkButton()
     {
-        if(!textView.getText().toString().equals("0"))
+        if(!textView.getText().toString().equals("0") || !textView.getText().toString().equals("NaN"))
         {
             if(!textView.getText().toString().contains("-"))
             {
@@ -198,7 +198,7 @@ public class SimpleCalculator extends AppCompatActivity {
     }
     public void dotButton()
     {
-        if(!textView.getText().toString().contains("."))
+        if(!textView.getText().toString().contains(".") && !textView.getText().equals("NaN"))
         {
             String var = textView.getText().toString();
             textView.setText(var.concat("."));
@@ -208,7 +208,7 @@ public class SimpleCalculator extends AppCompatActivity {
     {
         String var = textView.getText().toString();
         var = var.substring(0, var.length()-1);
-        if(var.equals(""))
+        if(var.equals("") || var.equals("Na"))
         {
             textView.setText("0");
         }
@@ -231,19 +231,32 @@ public class SimpleCalculator extends AppCompatActivity {
     }
     public void setOperation(String Operation)
     {
-        if(handleCalculations.getOperation().equals(""))
+        if(!textView.getText().equals("NaN"))
         {
-            handleCalculations.setOperation(Operation);
-            handleCalculations.setValue(textView.getText().toString());
-            textViewUpper.setText(handleCalculations.getCalcLine());
-            setValue("0");
-        }
-        else if(!handleCalculations.getOperation().equals(Operation))
-        {
-            calculate(textView.getText().toString());
-            handleCalculations.setOperation(Operation);
-            textViewUpper.setText(handleCalculations.getCalcLine());
-            setValue("0");
+            if(handleCalculations.getOperation().equals(""))
+            {
+                handleCalculations.setOperation(Operation);
+                handleCalculations.setValue(textView.getText().toString());
+                textViewUpper.setText(handleCalculations.getCalcLine());
+                setValue("0");
+            }
+            else if(!handleCalculations.getOperation().equals(Operation))
+            {
+                calculate(textView.getText().toString());
+                if(!handleCalculations.getValue().contains("NaN"))
+                {
+                    handleCalculations.setOperation(Operation);
+                    textViewUpper.setText(handleCalculations.getCalcLine());
+                    setValue("0");
+                }
+                else
+                {
+                    handleCalculations.setOperation("");
+                    handleCalculations.setValue("0");
+                    textViewUpper.setText("");
+                    setValue("NaN");
+                }
+            }
         }
     }
 

@@ -16,6 +16,10 @@ public class HandleCalculations {
 
         Expression exp = new Expression(this.value + this.operation + "("+value+")");
         this.value = String.valueOf(exp.calculate());
+        if(this.value.endsWith(".0"))
+        {
+            this.value = this.value.substring(0, this.value.length() - 2);
+        }
     }
 
     public void setOperation(String calculation) {

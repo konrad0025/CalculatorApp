@@ -174,7 +174,7 @@ public class SimpleCalculator extends AppCompatActivity {
     }
     public void changeMarkButton()
     {
-        if(!textView.getText().toString().equals("0") || !textView.getText().toString().equals("NaN"))
+        if(!textView.getText().toString().equals("0") && !textView.getText().toString().equals("NaN"))
         {
             if(!textView.getText().toString().contains("-"))
             {

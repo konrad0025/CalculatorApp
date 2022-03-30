@@ -10,7 +10,7 @@ import android.widget.TextView;
 public class AdvancedCalculator extends AppCompatActivity {
     HandleCalculations handleCalculations;
     TextView textView,textViewUpper;
-    Button buttonC,buttonMark,buttonDot,button0,button1,button2,button3,button4,button5,button6,button7,button8,button9,buttonPlus,buttonMinus,buttonEqual,buttonMultiply,buttonDivide,buttonBscp;
+    Button buttonSqrt,buttonLog,buttonLn,buttonTan,buttonCos,buttonSin,buttonPow,buttonPow2,buttonC,buttonMark,buttonDot,button0,button1,button2,button3,button4,button5,button6,button7,button8,button9,buttonPlus,buttonMinus,buttonEqual,buttonMultiply,buttonDivide,buttonBscp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,13 +97,6 @@ public class AdvancedCalculator extends AppCompatActivity {
                 setOperation(buttonPlus.getText().toString());
             }
         });
-        buttonMinus = findViewById(R.id.button18);
-        buttonMinus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setOperation(buttonMinus.getText().toString());
-            }
-        });
         buttonEqual = findViewById(R.id.button21);
         buttonEqual.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -158,6 +151,68 @@ public class AdvancedCalculator extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 changeMarkButton();
+            }
+        });
+        buttonPow = findViewById(R.id.button29);
+        buttonPow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setOperation("^");
+            }
+        });
+        buttonPow2 = findViewById(R.id.button28);
+        buttonPow2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!textView.getText().toString().equals("NaN"))
+                {
+                    setOperation("^");
+                    updateCalcLine("2");
+                    equalButton();
+                }
+
+            }
+        });
+        buttonSin = findViewById(R.id.button23);
+        buttonSin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               funcButton(buttonSin.getText().toString());
+            }
+        });
+        buttonCos = findViewById(R.id.button24);
+        buttonCos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                funcButton(buttonCos.getText().toString());
+            }
+        });
+        buttonTan = findViewById(R.id.button25);
+        buttonTan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                funcButton(buttonTan.getText().toString());
+            }
+        });
+        buttonLn = findViewById(R.id.button26);
+        buttonLn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                funcButton(buttonLn.getText().toString());
+            }
+        });
+        buttonLog = findViewById(R.id.button30);
+        buttonLog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                funcButton(buttonLog.getText().toString()+"10");
+            }
+        });
+        buttonSqrt = findViewById(R.id.button27);
+        buttonSqrt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                funcButton(buttonSqrt.getText().toString());
             }
         });
     }
@@ -228,23 +283,23 @@ public class AdvancedCalculator extends AppCompatActivity {
             handleCalculations.setValue("0");
         }
     }
-    public void setOperation(String Operation)
+    public void setOperation(String operation)
     {
         if(!textView.getText().equals("NaN"))
         {
             if(handleCalculations.getOperation().equals(""))
             {
-                handleCalculations.setOperation(Operation);
+                handleCalculations.setOperation(operation);
                 handleCalculations.setValue(textView.getText().toString());
                 textViewUpper.setText(handleCalculations.getCalcLine());
                 setValue("0");
             }
-            else if(!handleCalculations.getOperation().equals(Operation))
+            else if(!handleCalculations.getOperation().equals(operation))
             {
                 calculate(textView.getText().toString());
                 if(!handleCalculations.getValue().contains("NaN"))
                 {
-                    handleCalculations.setOperation(Operation);
+                    handleCalculations.setOperation(operation);
                     textViewUpper.setText(handleCalculations.getCalcLine());
                     setValue("0");
                 }
@@ -261,10 +316,25 @@ public class AdvancedCalculator extends AppCompatActivity {
 
     public void equalButton()
     {
-        calculate(textView.getText().toString());
-        setValue(handleCalculations.getValue());
-        textViewUpper.setText("");
-        handleCalculations.setOperation("");
+        if(!handleCalculations.getOperation().equals(""))
+        {
+            calculate(textView.getText().toString());
+            setValue(handleCalculations.getValue());
+            textViewUpper.setText("");
+            handleCalculations.setOperation("");
+        }
+    }
+
+    public void funcButton(String operation)
+    {
+        if(!textView.getText().equals("NaN") && textViewUpper.getText().toString().equals("")) {
+            handleCalculations.setValue(textView.getText().toString());
+            handleCalculations.setOperation(operation);
+            calculate(null);
+            setValue(handleCalculations.getValue());
+            textViewUpper.setText("");
+            handleCalculations.setOperation("");
+        }
     }
 
     public void calculate(String value)

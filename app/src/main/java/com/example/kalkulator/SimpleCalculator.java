@@ -98,13 +98,6 @@ public class SimpleCalculator extends AppCompatActivity {
                 setOperation(buttonPlus.getText().toString());
             }
         });
-        buttonMinus = findViewById(R.id.button18);
-        buttonMinus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setOperation(buttonMinus.getText().toString());
-            }
-        });
         buttonEqual = findViewById(R.id.button21);
         buttonEqual.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,14 +105,14 @@ public class SimpleCalculator extends AppCompatActivity {
                 equalButton();
             }
         });
-        buttonMultiply = findViewById(R.id.button18);
+        buttonMultiply = findViewById(R.id.button14);
         buttonMultiply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 setOperation(buttonMultiply.getText().toString());
             }
         });
-        buttonMinus = findViewById(R.id.button14);
+        buttonMinus = findViewById(R.id.button18);
         buttonMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -229,23 +222,23 @@ public class SimpleCalculator extends AppCompatActivity {
             handleCalculations.setValue("0");
         }
     }
-    public void setOperation(String Operation)
+    public void setOperation(String operation)
     {
         if(!textView.getText().equals("NaN"))
         {
             if(handleCalculations.getOperation().equals(""))
             {
-                handleCalculations.setOperation(Operation);
+                handleCalculations.setOperation(operation);
                 handleCalculations.setValue(textView.getText().toString());
                 textViewUpper.setText(handleCalculations.getCalcLine());
                 setValue("0");
             }
-            else if(!handleCalculations.getOperation().equals(Operation))
+            else if(!handleCalculations.getOperation().equals(operation))
             {
                 calculate(textView.getText().toString());
                 if(!handleCalculations.getValue().contains("NaN"))
                 {
-                    handleCalculations.setOperation(Operation);
+                    handleCalculations.setOperation(operation);
                     textViewUpper.setText(handleCalculations.getCalcLine());
                     setValue("0");
                 }
@@ -262,10 +255,13 @@ public class SimpleCalculator extends AppCompatActivity {
 
     public void equalButton()
     {
-        calculate(textView.getText().toString());
-        setValue(handleCalculations.getValue());
-        textViewUpper.setText("");
-        handleCalculations.setOperation("");
+        if(!handleCalculations.getOperation().equals(""))
+        {
+            calculate(textView.getText().toString());
+            setValue(handleCalculations.getValue());
+            textViewUpper.setText("");
+            handleCalculations.setOperation("");
+        }
     }
 
     public void calculate(String value)

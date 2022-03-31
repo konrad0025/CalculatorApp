@@ -1,5 +1,6 @@
 package com.example.kalkulator;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -259,4 +260,21 @@ public class SimpleCalculator extends AppCompatActivity {
         return handleCalculations.updateValue(value);
     }
 
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("value",handleCalculations.getValue());
+        outState.putString("Operation", handleCalculations.getOperation());
+        outState.putString("textView",textView.getText().toString());
+        outState.putString("textViewUpper",textViewUpper.getText().toString());
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        handleCalculations.setValue(savedInstanceState.getString("value"));
+        handleCalculations.setOperation(savedInstanceState.getString("Operation"));
+        textView.setText(savedInstanceState.getString("textView"));
+        textViewUpper.setText(savedInstanceState.getString("textViewUpper"));
+    }
 }

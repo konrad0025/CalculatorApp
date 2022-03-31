@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SimpleCalculator extends AppCompatActivity {
     HandleCalculations handleCalculations;
@@ -162,7 +163,7 @@ public class SimpleCalculator extends AppCompatActivity {
 
     public void updateCalcLine(String value)
     {
-        if(!textView.getText().equals("0") && !textView.getText().equals("NaN"))
+        if(!textView.getText().equals("0"))
         {
             String var = textView.getText().toString();
             textView.setText(var.concat(value));
@@ -174,7 +175,7 @@ public class SimpleCalculator extends AppCompatActivity {
     }
     public void changeMarkButton()
     {
-        if(!textView.getText().toString().equals("0") && !textView.getText().toString().equals("NaN"))
+        if(!textView.getText().toString().equals("0"))
         {
             if(!textView.getText().toString().contains("-"))
             {
@@ -191,7 +192,7 @@ public class SimpleCalculator extends AppCompatActivity {
     }
     public void dotButton()
     {
-        if(!textView.getText().toString().contains(".") && !textView.getText().equals("NaN"))
+        if(!textView.getText().toString().contains("."))
         {
             String var = textView.getText().toString();
             textView.setText(var.concat("."));
@@ -224,32 +225,20 @@ public class SimpleCalculator extends AppCompatActivity {
     }
     public void setOperation(String operation)
     {
-        if(!textView.getText().equals("NaN"))
+        if(handleCalculations.getOperation().equals(""))
         {
-            if(handleCalculations.getOperation().equals(""))
-            {
-                handleCalculations.setOperation(operation);
-                handleCalculations.setValue(textView.getText().toString());
-                textViewUpper.setText(handleCalculations.getCalcLine());
-                setValue("0");
-            }
-            else if(!handleCalculations.getOperation().equals(operation))
-            {
-                calculate(textView.getText().toString());
-                if(!handleCalculations.getValue().contains("NaN"))
-                {
-                    handleCalculations.setOperation(operation);
-                    textViewUpper.setText(handleCalculations.getCalcLine());
-                    setValue("0");
-                }
-                else
-                {
-                    handleCalculations.setOperation("");
-                    handleCalculations.setValue("0");
-                    textViewUpper.setText("");
-                    setValue("NaN");
-                }
-            }
+            handleCalculations.setOperation(operation);
+            handleCalculations.setValue(textView.getText().toString());
+            textViewUpper.setText(handleCalculations.getCalcLine());
+            setValue("0");
+        }
+        else if(!handleCalculations.getOperation().equals(operation))
+        {
+            int check = calculate(textView.getText().toString());
+            handleCalculations.setOperation(operation);
+            textViewUpper.setText(handleCalculations.getCalcLine());
+            setValue("0");
+            if(check == -1) Toast.makeText(SimpleCalculator.this,"Incorrect operation!",Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -257,16 +246,17 @@ public class SimpleCalculator extends AppCompatActivity {
     {
         if(!handleCalculations.getOperation().equals(""))
         {
-            calculate(textView.getText().toString());
+            int check = calculate(textView.getText().toString());
             setValue(handleCalculations.getValue());
             textViewUpper.setText("");
             handleCalculations.setOperation("");
+            if(check == -1) Toast.makeText(SimpleCalculator.this,"Incorrect operation!",Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void calculate(String value)
+    public int calculate(String value)
     {
-        handleCalculations.updateValue(value);
+        return handleCalculations.updateValue(value);
     }
 
 }

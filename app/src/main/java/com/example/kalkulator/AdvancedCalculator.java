@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class AdvancedCalculator extends AppCompatActivity {
     HandleCalculations handleCalculations;
@@ -164,13 +165,9 @@ public class AdvancedCalculator extends AppCompatActivity {
         buttonPow2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!textView.getText().toString().equals("NaN"))
-                {
-                    setOperation("^");
-                    updateCalcLine("2");
-                    equalButton();
-                }
-
+                setOperation("^");
+                updateCalcLine("2");
+                equalButton();
             }
         });
         buttonSin = findViewById(R.id.button23);
@@ -223,7 +220,7 @@ public class AdvancedCalculator extends AppCompatActivity {
 
     public void updateCalcLine(String value)
     {
-        if(!textView.getText().equals("0") && !textView.getText().equals("NaN"))
+        if(!textView.getText().equals("0"))
         {
             String var = textView.getText().toString();
             textView.setText(var.concat(value));
@@ -235,7 +232,7 @@ public class AdvancedCalculator extends AppCompatActivity {
     }
     public void changeMarkButton()
     {
-        if(!textView.getText().toString().equals("0") && !textView.getText().toString().equals("NaN"))
+        if(!textView.getText().toString().equals("0"))
         {
             if(!textView.getText().toString().contains("-"))
             {
@@ -252,7 +249,7 @@ public class AdvancedCalculator extends AppCompatActivity {
     }
     public void dotButton()
     {
-        if(!textView.getText().toString().contains(".") && !textView.getText().equals("NaN"))
+        if(!textView.getText().toString().contains("."))
         {
             String var = textView.getText().toString();
             textView.setText(var.concat("."));
@@ -285,32 +282,20 @@ public class AdvancedCalculator extends AppCompatActivity {
     }
     public void setOperation(String operation)
     {
-        if(!textView.getText().equals("NaN"))
+        if(handleCalculations.getOperation().equals(""))
         {
-            if(handleCalculations.getOperation().equals(""))
-            {
-                handleCalculations.setOperation(operation);
-                handleCalculations.setValue(textView.getText().toString());
-                textViewUpper.setText(handleCalculations.getCalcLine());
-                setValue("0");
-            }
-            else if(!handleCalculations.getOperation().equals(operation))
-            {
-                calculate(textView.getText().toString());
-                if(!handleCalculations.getValue().contains("NaN"))
-                {
-                    handleCalculations.setOperation(operation);
-                    textViewUpper.setText(handleCalculations.getCalcLine());
-                    setValue("0");
-                }
-                else
-                {
-                    handleCalculations.setOperation("");
-                    handleCalculations.setValue("0");
-                    textViewUpper.setText("");
-                    setValue("NaN");
-                }
-            }
+            handleCalculations.setOperation(operation);
+            handleCalculations.setValue(textView.getText().toString());
+            textViewUpper.setText(handleCalculations.getCalcLine());
+            setValue("0");
+        }
+        else if(!handleCalculations.getOperation().equals(operation))
+        {
+            int check = calculate(textView.getText().toString());
+            handleCalculations.setOperation(operation);
+            textViewUpper.setText(handleCalculations.getCalcLine());
+            setValue("0");
+            if(check == -1) Toast.makeText(AdvancedCalculator.this,"Incorrect operation!",Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -318,28 +303,32 @@ public class AdvancedCalculator extends AppCompatActivity {
     {
         if(!handleCalculations.getOperation().equals(""))
         {
-            calculate(textView.getText().toString());
+            int check = calculate(textView.getText().toString());
             setValue(handleCalculations.getValue());
             textViewUpper.setText("");
             handleCalculations.setOperation("");
+            if(check == -1) Toast.makeText(AdvancedCalculator.this,"Incorrect operation!",Toast.LENGTH_SHORT).show();
         }
     }
+
+
 
     public void funcButton(String operation)
     {
-        if(!textView.getText().equals("NaN") && textViewUpper.getText().toString().equals("")) {
+        if(textViewUpper.getText().toString().equals("")) {
             handleCalculations.setValue(textView.getText().toString());
             handleCalculations.setOperation(operation);
-            calculate(null);
+            int check = calculate(null);
             setValue(handleCalculations.getValue());
             textViewUpper.setText("");
             handleCalculations.setOperation("");
+            if(check == -1) Toast.makeText(AdvancedCalculator.this,"Incorrect operation!",Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void calculate(String value)
+    public int calculate(String value)
     {
-        handleCalculations.updateValue(value);
+        return handleCalculations.updateValue(value);
     }
 
 }

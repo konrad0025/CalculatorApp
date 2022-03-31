@@ -12,7 +12,7 @@ public class HandleCalculations {
         this.operation = "";
     }
 
-    public void updateValue(String value){
+    public int updateValue(String value){
 
         Expression exp;
         if(!(value == null))
@@ -28,7 +28,12 @@ public class HandleCalculations {
         {
             this.value = this.value.substring(0, this.value.length() - 2);
         }
-
+        if(this.value.equals("NaN"))
+        {
+            this.value = "0";
+            return -1;
+        }
+        return 0;
     }
 
     public void setOperation(String calculation) {

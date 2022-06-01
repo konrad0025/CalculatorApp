@@ -1,5 +1,9 @@
 # CalculatorApp
 My version of a simple and advanced calculator for android that had to be created for school activities
+<br>
+-minSdkVersion 30
+<br>
+-targetSdkVersion 31
 <p float="left">
 <img src="https://github.com/konrad0025/CalculatorApp/blob/master/PhotosToReadme/Calc1.png" width="49%" height="49%" />
 
